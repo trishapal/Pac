@@ -1,0 +1,36 @@
+
+<h1>Add Details</h1>
+<form class="form" #newStudentForm="ngForm" (ngSubmit)="onSubmit(newStudentForm)">
+    <section>
+        <input type="text" autocomplete="off" placeholder="First name" required [(ngModel)]="FirstName" name="FirstName" #fName="ngModel">
+        <div *ngIf="!fName.valid && fName.touched">
+            First name is required!
+        </div>
+    </section>
+
+    <section>
+        <input type="text" autocomplete="off" placeholder="Last Name" required [(ngModel)]="LastName" name="LastName" #lName="ngModel">
+        <div *ngIf="!lName.valid && lName.touched">
+            Last name is required!
+        </div>
+    </section>
+
+    <section>
+        <input type="text" autocomplete="off" required placeholder="Class" [(ngModel)]="Class" name="Class" #class="ngModel">
+        <div *ngIf="!class.valid && class.touched">
+            Class is required!
+        </div>
+    </section>
+
+    <section>
+        <input type="text" autocomplete="off" placeholder="Roll" required [(ngModel)]="Roll" name="Roll" #roll="ngModel">
+        <div *ngIf="!roll.valid && roll.touched">
+            Roll is required!
+        </div>
+    </section>
+
+
+    <button type="submit" [disabled]="!newStudentForm.valid">
+        Submit
+    </button>
+</form>

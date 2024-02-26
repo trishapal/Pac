@@ -1,0 +1,24 @@
+<h1>Student List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Class</th>
+            <th>Roll</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students; let i= index">
+            <td>{{student.FirstName}}</td>
+            <td>{{student.LastName}}</td>
+            <td>{{student.Class}}</td>
+            <td>{{student.Roll}}</td>
+            <td><i class="far fa-edit" (click)="Edit(student.StudentID)"></i></td>
+            <td><i class="far fa-trash-alt" (click)="Delete(student.StudentID)"></i></td>
+        </tr>
+        <tr *ngIf="!students.length" id="noData">No data</tr>
+    </tbody>
+</table>
